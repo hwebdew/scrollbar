@@ -178,16 +178,19 @@
                 list.style.left = -scr + 'px';
             })
 
-            
+
+
             let ww = window.innerWidth;
 
-            if (ww < 600) {
+            if (ww < 600) {  
+                scrollWrap.style.width = 'auto'
+                function removeDefaultEvent(event) {
+                    event.preventDefault();
+                }
+                window.addEventListener("wheel", removeDefaultEvent, { 
+                    passive: false 
+                });
 
-                noteFolio.addEventListener('touchmove', function () {
-                    var scr = scrollWrap.scrollTop;
-                    console.log(scr)
-                    list.style.left = -scr + 'px';
-                })
             } else {
 
             }
