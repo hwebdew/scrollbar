@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>노트폴리오 가로스크롤</title> 
-    <style> 
+    <title>노트폴리오 가로스크롤</title>
+    <style>
         @font-face {
             font-family: 'Cafe24Supermagic-Bold-v1.0';
             src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/Cafe24Supermagic-Bold-v1.0.woff2') format('woff2');
@@ -100,7 +100,8 @@
         .notefolio .scroll_wrap .list {
             display: flex;
             position: relative;
-    transition: all 0.5s linear;/* 스크롤 부드럽게 움직임. */
+            transition: all 0.5s linear;
+            /* 스크롤 부드럽게 움직임. */
 
 
         }
@@ -150,9 +151,9 @@
         }
     </style>
     <script>
-        window.onload = function(){
-            
-            let noteFolio = document.querySelector('.notefolio')           
+        window.onload = function () {
+
+            let noteFolio = document.querySelector('.notefolio')
             let list = noteFolio.querySelector('.list');
             let itemLength = noteFolio.querySelectorAll('.item').length
             let scrollWrap = noteFolio.querySelector('.scroll_wrap')
@@ -166,18 +167,30 @@
             //scrollWrap.clientWidth(widthWrap)
 
             //noteFolio.addEventListener('wheel', function () {
-                // => noteFolio.mousewheel = function(){}
-                //mousewheel은 비표준이며 wheel로 바뀌었음.
+            // => noteFolio.mousewheel = function(){}
+            //mousewheel은 비표준이며 wheel로 바뀌었음.
 
-                 
-                
-             noteFolio.addEventListener('wheel',  function () {
+
+
+            noteFolio.addEventListener('wheel', function () {
                 var scr = scrollWrap.scrollTop;
                 console.log(scr)
                 list.style.left = -scr + 'px';
             })
 
             
+            let ww = window.innerWidth;
+
+            if (ww < 600) {
+
+                noteFolio.addEventListener('touchmove', function () {
+                    var scr = scrollWrap.scrollTop;
+                    console.log(scr)
+                    list.style.left = -scr + 'px';
+                })
+            } else {
+
+            }
 
         };
     </script>
