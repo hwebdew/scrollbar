@@ -149,6 +149,17 @@
         .creator .list>div {
             width: calc(100% / 4 - 20px);
         }
+
+        @media screen and (max-width:1024px) {
+            .notefolio .scroll_wrap {
+                left: 0;
+                transform: translateX(0);
+            }
+            .notefolio .scroll_wrap::-webkit-scrollbar {
+            display: block;
+
+        }
+        }
     </style>
     <script>
         window.onload = function () {
@@ -182,7 +193,7 @@
 
             let ww = window.innerWidth;
 
-            if (ww < 600) {  
+            if (ww < 1024) {  
                 scrollWrap.style.width = 'auto'
                 function removeDefaultEvent(event) {
                     event.preventDefault();
